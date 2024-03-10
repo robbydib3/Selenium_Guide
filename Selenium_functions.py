@@ -23,7 +23,7 @@ import time
 #Function 1: This function is used to select an object by ID. 
 def interact_id(item_id):
     i = 1 # set a value to 1
-    while i != 0: # while that value does NOT equal 0, run this try
+    while i != 0 or i > 1800: # while that value does NOT equal 0, run this try. If greater than 1800 30 mins have passed break loop
     
         try:
             a = driver.find_element(By.ID,item_id) 
@@ -40,8 +40,8 @@ def interact_id(item_id):
 # desired.
 def interact_XPATH(item_XPATH):
     i = 1
-    while i != 0:
-    
+    while i != 0 or i > 1800:
+
         try:
             a = driver.find_element(By.XPATH,item_XPATH) 
             i = 0
@@ -60,7 +60,7 @@ def interact_XPATH(item_XPATH):
 
 def interact_dropdown(item_ID,text):
     i = 1
-    while i != 0:
+    while i != 0 or i > 1800:
     
         try:
             dropdown = driver.find_element(By.ID,item_id)  #dropdown for format type
@@ -77,6 +77,6 @@ def interact_dropdown(item_ID,text):
     return(dropdown)
 
 
-driver = webdriver.Chrome() # Start server
-driver.get('https://www.youtube.com/') # enter website
+driver = webdriver.Chrome("path to chromedriver.exe") # Start server
+driver.get('https://www.youtube.com/') # enter website/
 
