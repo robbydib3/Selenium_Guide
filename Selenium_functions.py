@@ -54,16 +54,19 @@ def interact_XPATH(item_XPATH):
 # The 2 functions only select the item which won't do anything. Once selected you then have to tell selenium to commit an action. The most common two actions are
 # '.click()' and '.send_keys()'. This will allow you to either click an element or type something.
 
+#Function 3: This function works specifically with dropdown elements. The function can be used interchangeably with XPATH or ID
+# The function first finds the dropdown and clicks it. Once it is clicked all of the options will be selectable so we select the desired option
+# by 'select_visible_text' method. Enter your desired text into the function.
 
-def interact_dropdown(item_ID):
+def interact_dropdown(item_ID,text):
     i = 1
     while i != 0:
     
         try:
-            dropdown = WebDriverWait(driver, 1).until(EC.visibility_of_element_located((By.ID, item_ID))) #dropdown for format type
+            dropdown = driver.find_element(By.ID,item_id)  #dropdown for format type
             dropdown.click()
             select = Select(dropdown)
-            select.select_by_visible_text('CSV (comma delimited)')
+            select.select_by_visible_text(text)
             dropdown.click()
 
             i = 0
